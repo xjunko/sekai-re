@@ -1,0 +1,9 @@
+[project]
+name = "sekai-re"
+version = "0.0.1"
+description = "Project Sekai Reverse Engineering"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "unitypy>=1.21.3",
+]
