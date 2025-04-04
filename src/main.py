@@ -39,7 +39,7 @@ class Score:
                         id=score_id,
                         difficulty=score_difficulty,
                         data=score_data,
-                    )
+                    ),
                 )
 
         return scores
@@ -86,7 +86,11 @@ class Music:
 
 
 def load_musics(
-    root_in: Path, root_out: Path, *, export: bool = True, clear_mem: bool = False
+    root_in: Path,
+    root_out: Path,
+    *,
+    export: bool = True,
+    clear_mem: bool = False,
 ) -> list[Music]:
     ids: set[str] = set()
     musics: list[Music] = []
@@ -202,10 +206,10 @@ def command_extract_music(args: argparse.Namespace) -> int:
                 "id": music.id,
                 "jacket": music.jacket.size[0] != 1,
                 "tracks": sorted(
-                    [f"{track.band}_{track.id}" for track in music.tracks]
+                    [f"{track.band}_{track.id}" for track in music.tracks],
                 ),
                 "scores": sorted([score.difficulty for score in music.scores]),
-            }
+            },
         )
 
     (root_out / "scores.json").write_text(json.dumps(data, indent=4))
@@ -223,7 +227,8 @@ def _main_argparse() -> int:
 
     # supported action
     extract_music = subparser.add_parser(
-        "extract_music", help="Decrypt and extract music assets"
+        "extract_music",
+        help="Decrypt and extract music assets",
     )
     extract_music.add_argument(
         "--in",
@@ -232,7 +237,10 @@ def _main_argparse() -> int:
         help="Root folder of the game assets",
     )
     extract_music.add_argument(
-        "--out", type=Path, required=True, help="Root folder to save the assets"
+        "--out",
+        type=Path,
+        required=True,
+        help="Root folder to save the assets",
     )
 
     # parse args
