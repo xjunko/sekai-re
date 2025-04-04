@@ -5,11 +5,14 @@
 project sekai files reverse engineering
 
 ## requirements
-- [uv](https://github.com/astral-sh/uv) to run the project
+- [uv](https://github.com/astral-sh/uv) to run the project.
+- [vgmstream](https://github.com/vgmstream/vgmstream) for decrypting the audio files.
 
 ## disclaimer
 to use this project, you first have to fetch the files from it's source.
 one of the ways you can do this are with [sssekai](https://github.com/mos9527/sssekai).
+
+it's preferable for vgmstream-cli to be installed directly into your enviroment $PATH.
 
 ## usage
 ```
